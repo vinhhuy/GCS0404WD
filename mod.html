@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Moderator</title>
+	<link REL="SHORTCUT ICON" HREF="../images/anh.png">
+	<link rel="stylesheet" href="">
+	<style type="text/css">
+
+			body{
+				background-image: url("../images/anh2.jpg");
+			}
+
+			#img{
+				float: left, top;
+			}
+
+			#search{
+				float:right;
+				margin-right: 50px;
+
+			}
+
+			#cc {
+				text-align: center;
+				float: center;
+			}
+
+			#user{
+				float:right;
+				color: white;
+				font-size: 30;
+			}
+			#menu ul{
+				background: none;
+				list-style-type: none;
+				text-align: center;
+				  margin-top: 3px;
+ 				 padding: 18px;
+
+			}
+			#menu li{
+				background: white;
+				width: 180px;
+				height: 44px;
+				line-height: 41px;
+				display:inline-block;
+				position: relative;
+				color:black;
+				border: 1px;
+
+
+			}
+			#menu li a {
+				text-decoration: none;
+				text-transform: uppercase;
+				font-weight: bold;
+				display: block;
+				background: white;
+				border-top: 4px solid gray;
+  				border-bottom: 3px solid gray;
+			}
+			#menu li a:hover{
+				  border-top: 3px solid red;
+				  transition: 0.3s ease;
+ 				border-bottom: 3px solid red;
+  				padding: 8px 0;
+			}
+			#menu li:hover {
+				background: red;
+			}
+
+			.sub-menu{
+				position: absolute;
+				display: none;
+		}
+
+			#menu>ul>li{
+				position: relative;
+			}
+			#menu li:hover .sub-menu{
+				display: block;
+				text-transform: uppercase;
+				padding-top: 0px;
+				padding-left: 0px;
+				
+			}
+			#box{
+				width: 20px;
+				background-image: url ("../images/4.png");
+				background-size: 100% 100%;
+			}
+
+			#box1{
+				text-align: center;
+
+			}
+			#pass{
+				margin-left: 7px;
+			}
+	</style>
+
+</head>
+<body>
+
+<div id="cc"><center>
+<script type="text/javascript">
+farbbibliothek = new Array();
+farbbibliothek[0] = new Array("#FF0000","#FF1100","#FF2200","#FF3300","#FF4400","#FF5500","#FF6600","#FF7700","#FF8800","#FF9900","#FFaa00","#FFbb00","#FFcc00","#FFdd00","#FFee00","#FFff00","#FFee00","#FFdd00","#FFcc00","#FFbb00","#FFaa00","#FF9900","#FF8800","#FF7700","#FF6600","#FF5500","#FF4400","#FF3300","#FF2200","#FF1100");
+farbbibliothek[1] = new Array("#00FF00","#000000","#00FF00","#00FF00");
+farbbibliothek[2] = new Array("#00FF00","#FF0000","#00FF00","#00FF00","#00FF00","#00FF00","#00FF00","#00FF00","#00FF00","#00FF00","#00FF00","#00FF00","#00FF00","#00FF00","#00FF00","#00FF00","#00FF00","#00FF00","#00FF00","#00FF00","#00FF00","#00FF00","#00FF00","#00FF00","#00FF00","#00FF00","#00FF00","#00FF00","#00FF00","#00FF00","#00FF00","#00FF00","#00FF00","#00FF00","#00FF00","#00FF00");
+farbbibliothek[3] = new Array("#FF0000","#FF4000","#FF8000","#FFC000","#FFFF00","#C0FF00","#80FF00","#40FF00","#00FF00","#00FF40","#00FF80","#00FFC0","#00FFFF","#00C0FF","#0080FF","#0040FF","#0000FF","#4000FF","#8000FF","#C000FF","#FF00FF","#FF00C0","#FF0080","#FF0040");
+farbbibliothek[4] = new Array("#FF0000","#EE0000","#DD0000","#CC0000","#BB0000","#AA0000","#990000","#880000","#770000","#660000","#550000","#440000","#330000","#220000","#110000","#000000","#110000","#220000","#330000","#440000","#550000","#660000","#770000","#880000","#990000","#AA0000","#BB0000","#CC0000","#DD0000","#EE0000");
+farbbibliothek[5] = new Array("#000000","#000000","#000000","#FFFFFF","#FFFFFF","#FFFFFF");
+farbbibliothek[6] = new Array("#0000FF","#FFFF00");
+farben = farbbibliothek[4];
+function farbschrift()
+{
+for(var i=0 ; i<Buchstabe.length; i++)
+{
+document.all["a"+i].style.color=farben[i];
+}
+farbverlauf();
+}
+function string2array(text)
+{
+Buchstabe = new Array();
+while(farben.length<text.length)
+{
+farben = farben.concat(farben);
+}
+k=0;
+while(k<=text.length)
+{
+Buchstabe[k] = text.charAt(k);
+k++;
+}
+}
+function divserzeugen()
+{
+for(var i=0 ; i<Buchstabe.length; i++)
+{
+document.write("<span id='a"+i+"' class='a"+i+"'>"+Buchstabe[i] + "<\/span>");
+}
+farbschrift();
+}
+var a=1;
+function farbverlauf()
+{
+for(var i=0 ; i<farben.length; i++)
+{
+farben[i-1]=farben[i];
+}
+farben[farben.length-1]=farben[-1];
+
+setTimeout("farbschrift()",20);
+}
+//
+var farbsatz=1;
+function farbtauscher()
+{
+farben = farbbibliothek[farbsatz];
+while(farben.length<text.length)
+{
+farben = farben.concat(farben);
+}
+farbsatz=Math.floor(Math.random()*(farbbibliothek.length-0.0001));
+}
+setInterval("farbtauscher()",5000);
+
+text= ">>>>> WELCOME TO XVIDEOS <<<<< "; //h
+string2array(text);
+divserzeugen();
+//document.write(text);
+</script></center></div>
+<br />
+	<div id="user"><strong>User Name: <input type="text" placeholder="User Name"></strong> </br>
+	<strong>PassWord: <input type="password" name="pass" placeholder="PassWord " id="pass"></strong>
+	</br><ul id ="box1"><input type= "submit" name="btnOK" value="Login"> &nbsp;<input type= "submit" name="btnOK" value="Forgot" ></ul></div>
+
+	<div id="search">
+	<input type="search" placeholder="SEARCH " style="margin-left: 200px" size="35px"><input type="submit" value=" " id="box"></br>
+
+	</div>
+	<div id="img"><img src="C:\Users\Vinh Huy\Documents\ProJect\images\hinh2.png" style=" width: 75px ;height: 75px"> </div></br>
+	<div id="main">
+	<div id="menu">
+	<ul>
+	<ins style="color:white; font-weight:bold; font-size: 26px;  padding:50px";> MENU</ins>
+
+	<li> <a href="cus.html" > Product </a>
+
+	<ul class="sub-menu">
+		<li> sign in</li>
+		<li>search info</li> 
+		<li> trống</li>
+	</ul>
+	</li>
+	<li> <a href="employer.html"> Trend</a>
+
+	<ul class="sub-menu">
+		<li> iteam1</li>
+		<li>iteam2</li> 
+		<li> iteam3</li>
+	</ul>
+	</li>
+
+	<li><a href="">Saling </a>
+
+		<ul class="sub-menu">
+		<li> My phone</li>
+		<li>my address</li> 
+		<li> fax</li>
+	</ul>
+	</li>
+
+	<li> <a href="product.html"> Suppiler</a>
+
+		<ul class="sub-menu">
+		<li> VIP</li>
+		<li>Anomymous</li> 
+		<li> Register</li>
+	</ul>
+	</li>
+
+
+		<li> <a href="product.html"> Contact </a>
+
+		<ul class="sub-menu">
+		<li> VIP</li>
+		<li>Anomymous</li> 
+		<li> Register</li>
+	</ul>
+	</li>
+
+	<li> <a href="product.html"> About Us</a></li>
+
+
+	</ul>
+	</div>
+	</div>
+
+</body>
+</html>
